@@ -1,0 +1,34 @@
+package com.company;
+
+public class Main {
+
+    public static String caesarCipherEncrypt(String text, int shift) {
+        StringBuilder Albina = new StringBuilder();
+        for (char charac : text.toCharArray()) {
+            if (Character.isLetter(charac)) {
+                int Aidana = Character.isLowerCase(charac) ? 'a' : 'A';
+                char encryptedChar = (char) ((charac - Aidana + shift) % 26 + Aidana);
+                Albina.append(encryptedChar);
+            } else {
+                Albina.append(charac);
+            }
+        }
+        return Albina.toString();
+    }
+
+    public static String caesarCipherDecrypt(String text, int shift) {
+        return caesarCipherEncrypt(text, -shift);
+    }
+
+    public static void main(String[] args) {
+        String originalText = "Albina";
+        int shift = 4;
+
+        String encryptedText = caesarCipherEncrypt(originalText, shift);
+        String decryptedText = caesarCipherDecrypt(encryptedText, shift);
+
+        System.out.println("Исходный текст: " + originalText);
+        System.out.println("Зашифрованный текст: " + encryptedText);
+
+    }
+}
